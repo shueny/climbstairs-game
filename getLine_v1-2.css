@@ -1,0 +1,89 @@
+body {height:100%; width:100%; margin:0px; padding:0px; font:15px/20px Helvetica; background:linear-gradient(135deg,#ffe3d3, #ffc1c1)}
+
+.climbLadderArea {background-color:#fffff6; width:400px; height:400px; margin:auto; position:fixed; top:0px; right:0px; bottom:0px; left:0px}
+.inputArea {width:400px; height:50px; position:relative; margin:auto; top:-80px; bottom:0; left:0; right:0; color:#4d5e6b; font-weight:600; z-index:1}
+.inputArea input[name=totlaverticalLine],
+.inputArea input[name=totlaLevelLine] {text-align:right; vertical-align:bottom; margin:5px 0px 0px}
+.climbLadderArea .container > div {float:left}
+.climbLadderArea .verticalLine {background-color:#d4d4d4; height:100%; width:3px; position:absolute; bottom:0px}
+.climbLadderArea .levelLine {height:1px; background-color:#d4d4d4; margin:0px; position:absolute}
+
+.climbLadderArea .endResult {dispaly:none; width:100%; height:30px; position:absolute; top:-35px}
+.climbLadderArea .endResult span {margin:0px 0px 0px -24px; padding:0px; box-sizing:content-box; box-sizing:border-box; overflow:hidden; position:absolute; top:0; transition:all 500ms ease 0s}
+.climbLadderArea .endResult .envelope {width:50px; height:30px; background:#ca336d; box-shadow:3px 5px 3px #BEC0BF; position:absolute; z-index:1}
+.climbLadderArea .endResult .envelope::before {content:""; right:0; border-bottom:0px soild transparent; border-top:30px solid transparent; border-right:50px solid #dc447f; position:absolute; z-index:2}
+.climbLadderArea .endResult .envelope::after {content:""; left:0; border-bottom:0px soild transparent; border-top:30px solid transparent; border-left:50px solid #ea4c89; position:absolute; z-index:2}
+.climbLadderArea .endResult .paper {width:30px; height:20px; position:absolute; bottom:0; left:50%; margin-left:-15px; background:#f2f2f2; z-index:1}
+.climbLadderArea .endResult .paper::before {content:""; position:absolute; width:30px; height:20px; background:rgba(177,177,177,0.1); bottom:0; left:0}
+.climbLadderArea .endResult .noti {position:absolute; top:-15px; right:-15px; width:20px; height:20px; border-radius:50%; color:#fff; font:bold 13px/20px "Helvetica"; text-align:center; background:#5f90f6; box-shadow:0 4px 0 rgba(216,217,216, 0.7); opacity:0}
+.climbLadderArea .endResult .topCap {border-right:25px solid transparent; border-top:20px solid #c8336c; border-left:25px solid transparent; position:absolute; left:0; top:0; transform-origin:0% 0%; z-index:9999}
+.climbLadderArea .endResult ul {margin:25px auto 1 auto; padding:0; margin:0; display:block; width:80%}
+.climbLadderArea .endResult ul li {list-style:none; background:#d3d3d3; width:100%; height:2px; margin-bottom:3px}
+.climbLadderArea .endResult ul li:nth-child(1) {width:50%}
+.climbLadderArea .endResult ul li:nth-child(2) {width:20%; margin-bottom:5px}
+.move {animation:rotation 1s infinite linear}
+.climbLadderArea .endResult .open-envelop .topCap {animation:foldUp 1s ease-in-out; animation-fill-mode:forwards; z-index:0}
+.climbLadderArea .endResult .open-envelop .paper {animation:paperUp 1.5s ease-in-out; animation-fill-mode:forwards; animation-delay:1s}
+.climbLadderArea .endResult .open-envelop .paper ul {margin:7px 3px}
+.climbLadderArea .endResult .open-envelop .noti {animation:noti 0.5s ease-in-out; animation-fill-mode:forwards; animation-delay:2s}
+
+.climbLadderArea .btnArea {width:100%; height:100%; position:absolute; bottom:0}
+.climbLadderArea .btnArea a {width:50px; margin:0px 0px 0px -24px; padding:0px; box-sizing:content-box; box-sizing:border-box; overflow:hidden; cursor:pointer; position:absolute; bottom:-50px; transition:all 500ms ease 0s; animation:rotation 1s infinite linear}
+.climbLadderArea .runLineArea {background-color:transparent; width:400px; height:400px; margin:auto; position:absolute; top:0px; right:0px; bottom:0px; left:0px; z-index:1}
+.climbLadderArea .runLineArea .verticalSpan {background-color:#248EF4; width:3px; height:0px; margin:0px 0px 0px -1px; position:absolute; transition:all 1000ms ease 0s}
+.climbLadderArea .runLineArea .levelSpan {background-color:#248EF4; width:0px; height:3px; margin:-1px 0px 0px 0px; position:absolute; transition:all 1000ms ease 0s}
+
+.climbLadderArea .againBtnArea {width:100%; height:30px; text-align:center; display:none; position:absolute; bottom:-55px; left:0px}
+.climbLadderArea .againBtnArea a {background-color:#248EF4; width:50%; height:30px; font:15px/30px Helvetica; color:#FFFFFF; margin:0px auto; cursor:pointer; display:block}
+
+.climbLadderArea svg {width:100%; height:100%; position:relative;}
+/**.climbLadderArea .runLineArea img {animation-name:runPath; animation-duration: 3s; animation-iteration-count:1; animation-timing-function:linear }**/
+#momoco_head {width:50px; position:absolute; right:24px}
+
+@keyframes drawLine{
+	to{
+		stroke-dashoffset:0px;
+	}
+}
+
+@keyframes foldUp{
+	from{transform:rotateX(0deg)}
+	to {transform:rotateX(180deg); z-index:0}
+}
+
+@keyframes noti{
+	from {opacity:0}
+	to {opacity:1}
+}
+
+@keyframes paperUp{
+	from{height:20px}
+	60%{height:50px}
+	70%{height:40px}
+	80%{height:50px}
+	90%{height:45px}
+	100%{height:50px}
+}
+
+
+
+@keyframes rotation{
+	0%{transform: rotate(-20deg);}
+	25% {transform: rotate(0deg)}	
+	50% {transform: rotate(20deg)}	
+	750% {transform: rotate(0deg)}	
+	100%{transform: rotate(-20deg);}
+}
+
+@keyframes runPath {
+	100%{offset-distance:100%; motion-offset:100%}
+}
+@keyframes momo-move{
+	100%{offset-distance:100%}
+}
+/** .path_1 {animation: drawLine 10s linear forwards}; **/
+
+@media screen and (min-width:375px) and (max-width:736px){
+	
+	.climbLadderArea {width:90%}
+	.inputArea {top: -15%}
