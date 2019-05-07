@@ -10,9 +10,6 @@
 - Array
 - SVG
 
-
-![step1](/images/step1.jpg)
-
-![step2](/images/step2.jpg)
-
-![step3](/images/step3.jpg)
+<img src="/images/step1.jpg" width = "50%" />
+<img src="/images/step2.jpg" width = "50%" />
+<img src="/images/step3.jpg" width = "50%" />
